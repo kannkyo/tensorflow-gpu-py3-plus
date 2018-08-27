@@ -28,21 +28,6 @@ RUN apt-get -y update --fix-missing && \
 	libssl-dev \
 	build-essential
 
-# add package for libjasper-dev used by opencv
-#RUN add-apt-repository "deb http://deb.debian.org/debian jessie main" && \
-#    apt-get -y update --fix-missing
-
-# install opencv
-# RUN git clone https://github.com/kannkyo/Install-OpenCV.git ~/opencv 
-# RUN sudo apt-get -y install --allow-unauthenticated libarchive13 libnettle*
-#RUN cd ~/opencv/Ubuntu && \
-#    ./opencv_latest.sh
-# when executing opencv_latest.sh, i find error bellow.
-#The following packages have unmet dependencies:
-# cmake : Depends: libarchive13 but it is not going to be installed
-#E: Unable to correct problems, you have held broken packages.
-
-
 # install pip packages
 RUN pip install --upgrade pip 
 RUN pip install \
