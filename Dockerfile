@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest-gpu-py3
+FROM tensorflow/tensorflow:latest-gpu
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
