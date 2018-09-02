@@ -5,46 +5,54 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 # install packages
 RUN apt-get -y update --fix-missing && \
     apt-get install -y \
-	git \
-	software-properties-common \
-	vim \
+	apt-utils \
+	build-essential \
 	bzip2 \
-	python3-pip \
+	cmake \
 	curl \
-	wget \
-	unzip \
+	git \
 	libmecab-dev \
 	libc6-dev \
 	libssl-dev \
 	libreadline-dev \
+	libssl-dev \
+	libsm6 \
+	libxrender1 \
 	mecab \
 	mecab-ipadic \
 	mecab-ipadic-utf8 \
-	zlib1g-dev \
-	apt-utils \
+	net-tools \
+	python3-pip \
 	software-properties-common \
 	sudo \
-	net-tools \
-	libssl-dev \
-	build-essential
+	unzip \
+	vim \
+	wget \
+	zlib1g-dev
 
 # install pip packages
 RUN pip install --upgrade pip 
 RUN pip install \
+	atari-py \
 	beautifulsoup4 \
-	requests \
-	pyyaml \
+	dopamine-rl \
+	gensim \
+	google_images_download \
+	janome \
+	keras \
+	mecab-python3 \
 	opencv-python \
 	openpyxl \
-	xlrd \
-	tinydb \
+	pyyaml \
+	requests \
 	scikit-learn \
 	scikit-image \
-	keras \
-	janome \
-	google_images_download \
-	gensim \
-	mecab-python3
+	tinydb \
+	xlrd
+
+# reinstall tensorflow because of gpu support
+RUN pip uninstall -y tensorflow tensorflow-gpu
+RUN pip install tensorflow-gpu
 
 # install ruby
 RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
